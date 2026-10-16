@@ -24481,7 +24481,7 @@ local t={
     ["(float,float)"]=nil},
   igImQsort={
     [1]={
-      args="(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+      args="(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))",
       argsT={
         [1]={
           name="base",
@@ -24493,11 +24493,12 @@ local t={
           name="size_of_element",
           type="size_t"},
         [4]={
+          has_cdecl="__cdecl",
           name="compare_func",
           ret="int",
           signature="(void const*,void const*)",
-          type="int(*)(void const*,void const*)"}},
-      argsoriginal="(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+          type="int(__cdecl*)(void const*,void const*)"}},
+      argsoriginal="(void* base,size_t count,size_t size_of_element,int(__cdecl* compare_func)(void const*,void const*))",
       call_args="(base,count,size_of_element,compare_func)",
       cimguiname="igImQsort",
       defaults={},
@@ -24505,9 +24506,9 @@ local t={
       location="imgui_internal:391",
       ov_cimguiname="igImQsort",
       ret="void",
-      signature="(void*,size_t,size_t,int(*)(void const*,void const*))",
+      signature="(void*,size_t,size_t,int(__cdecl*)(void const*,void const*))",
       stname=""},
-    ["(void*,size_t,size_t,int(*)(void const*,void const*))"]=nil},
+    ["(void*,size_t,size_t,int(__cdecl*)(void const*,void const*))"]=nil},
   igImRotate={
     [1]={
       args="(const ImVec2_c v,float cos_a,float sin_a)",
@@ -24565,7 +24566,7 @@ local t={
       cimguiname="igImRsqrt",
       defaults={},
       funcname="ImRsqrt",
-      location="imgui_internal:519",
+      location="imgui_internal:517",
       ov_cimguiname="igImRsqrt_Float",
       ret="float",
       signature="(float)",
@@ -29062,7 +29063,7 @@ local t={
         [9]={
           name="stride",
           type="int"}},
-      argsoriginal="(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      argsoriginal="(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       call_args="(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       call_args_conv="(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,ConvertToCPP_ImVec2(graph_size),stride)",
       cimguiname="igPlotHistogram",
@@ -29112,7 +29113,7 @@ local t={
         [9]={
           name="graph_size",
           type="ImVec2"}},
-      argsoriginal="(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      argsoriginal="(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       call_args="(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       call_args_conv="(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,ConvertToCPP_ImVec2(graph_size))",
       cimguiname="igPlotHistogram",
@@ -29162,7 +29163,7 @@ local t={
         [9]={
           name="stride",
           type="int"}},
-      argsoriginal="(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      argsoriginal="(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       call_args="(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       call_args_conv="(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,ConvertToCPP_ImVec2(graph_size),stride)",
       cimguiname="igPlotLines",
@@ -29212,7 +29213,7 @@ local t={
         [9]={
           name="graph_size",
           type="ImVec2"}},
-      argsoriginal="(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      argsoriginal="(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       call_args="(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       call_args_conv="(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,ConvertToCPP_ImVec2(graph_size))",
       cimguiname="igPlotLines",
@@ -29428,7 +29429,7 @@ local t={
         [3]={
           name="overlay",
           type="const char*"}},
-      argsoriginal="(float fraction,const ImVec2& size_arg=ImVec2(-1.17549435082228750796873653722224568e-38F,0),const char* overlay=((void*)0))",
+      argsoriginal="(float fraction,const ImVec2& size_arg=ImVec2(-1.175494351e-38F,0),const char* overlay=((void*)0))",
       call_args="(fraction,size_arg,overlay)",
       call_args_conv="(fraction,ConvertToCPP_ImVec2(size_arg),overlay)",
       cimguiname="igProgressBar",
@@ -39037,7 +39038,7 @@ t.igImParseFormatSanitizeForScanning["(const char*,char*,size_t)"]=t.igImParseFo
 t.igImParseFormatTrimDecorations["(const char*,char*,size_t)"]=t.igImParseFormatTrimDecorations[1]
 t.igImPow["(double,double)"]=t.igImPow[2]
 t.igImPow["(float,float)"]=t.igImPow[1]
-t.igImQsort["(void*,size_t,size_t,int(*)(void const*,void const*))"]=t.igImQsort[1]
+t.igImQsort["(void*,size_t,size_t,int(__cdecl*)(void const*,void const*))"]=t.igImQsort[1]
 t.igImRotate["(const ImVec2,float,float)"]=t.igImRotate[1]
 t.igImRound64["(float)"]=t.igImRound64[1]
 t.igImRsqrt["(double)"]=t.igImRsqrt[2]
